@@ -3,7 +3,6 @@ const morgan = require("morgan");
 const app = express();
 const port = 8080;
 
-
 app.use(express.static("public"));
 app.use(morgan("dev"));
 
@@ -36,6 +35,8 @@ app.use((req, res) => { //equivalent du else, ceci s'apelle un middleware
   res.status(404).sendFile("/HTML/404.html", { root: __dirname });
 });
 
-app.listen(port, () => {
-  console.log("Server listening on port " + port);
-});
+// essaie tous les get, si ne rentre pas dans les get rentre dans le use
+
+app.listen(port, () => { 
+    console.log("Server listening on port "+port);
+})
