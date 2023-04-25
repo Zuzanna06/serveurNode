@@ -22,7 +22,7 @@
     background-image:url(public/img/logo-wow-arts-M.jpg);
     background-position:center;
     background-repeat:no-repeat;
-    height:91px;
+    height:25px;
     border:0;
   }
   h1{
@@ -39,48 +39,21 @@
     font-family: 'Roboto';
     color: #fff;
   }
-  
-  nav {
-      display: flex;
-      margin: auto;
-      justify-content: space-between;
-      align-items: center;
-      height: 105px;
-  }
-  
-  
-  
-  nav ul{
-    margin: auto;
-    list-style: none;
-    display: flex;
-  }
-  
-  nav ul li {
-      margin: 0 18px;
-      
-  }
-  
-  nav ul li a{
-    color: #224873;
-    text-decoration: none;
-    font-size: 14px;
-  }
 
 
 /* ************MENU********* */
 #menu{
-  float:left;
+    float:left;
     width:850px;
     margin: 0 0 0 0;
     padding: 0 0 0 0 ;
     background: repeat-x 0 -25px ;
     list-style-type: none ;
     height:30px;
-  
   }
-  #menu-space{
-    overflow: auto;
+
+    #menu-space{
+    overflow: hidden;
   }
   
     #menu ul {
@@ -179,6 +152,12 @@
     }
 
 
+  #bandeauPA1{
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+  }
+
   #bandeauPA{
     margin: auto;
     margin-top: 25px;
@@ -186,6 +165,7 @@
   }
   p {
     display: block;
+    margin-bottom: 1em;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
