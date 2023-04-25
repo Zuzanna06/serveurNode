@@ -19,12 +19,14 @@ app.get("/contact", function (req, res) {
   res.status(200).sendFile("/HTML/contact.html", { root: __dirname });
 });
 
-app.get("/product", function (req, res) {
-  res.status(200).sendFile("/HTML/product.html", { root: __dirname });
+app.get("/collections", function (req, res) {
+  res.status(200).sendFile("/HTML/collections.html", { root: __dirname });
 });
-
-app.get("/profil", function (req, res) {
-  res.status(200).sendFile("/HTML/profil.html", { root: __dirname });
+app.get("/ce_qui_se_passe", function (req, res) {
+  res.status(200).sendFile("/HTML/ce_qui_se_passe.html", { root: __dirname });
+});
+app.get("/les_coloc_de_wow-arts", function (req, res) {
+  res.status(200).sendFile("/HTML/les_coloc_de_wow-arts.html", { root: __dirname });
 });
 
 app.get("/", function (req, res) {

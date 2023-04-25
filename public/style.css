@@ -6,8 +6,24 @@
   
   /*header*************************/
   
-  body {
-    background-color: #e4ebf0;
+
+  #body{
+    width: 991px;
+    /* background-color: #ffffff; */
+    margin-left:auto;
+    margin-right:auto;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:12px;
+
+  }
+  #header{
+    position:relative;
+    background-image:url(public/img/logo-wow-arts-M.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    height:91px;
+    border:0;
   }
   h1{
     text-align: center;
@@ -32,11 +48,7 @@
       height: 105px;
   }
   
-  nav img {
-    padding-top: 10px;
-      height: 90px;
-      margin: auto;
-  }
+  
   
   nav ul{
     margin: auto;
@@ -54,6 +66,119 @@
     text-decoration: none;
     font-size: 14px;
   }
+
+
+/* ************MENU********* */
+#menu{
+  float:left;
+    width:850px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0 ;
+    background: repeat-x 0 -25px ;
+    list-style-type: none ;
+    height:30px;
+  
+  }
+  #menu-space{
+    overflow: auto;
+  }
+  
+    #menu ul {
+      padding:0;
+      margin:0;
+      list-style: none;
+      
+    }
+    #menu li
+    {
+      float: left ;
+      text-align: right ;
+    }
+    
+    #menu p
+    {
+    width:85px;
+    margin:0;
+    top:0;
+    padding:0;
+    line-height:30px ;
+    background-color:#ffffff;
+    font-size:12px ;
+    color:#330033;
+    }
+    
+    #menu li a
+    { 
+      width:auto;
+      line-height: 30px ;
+      font-size: 12px ;
+      letter-spacing: 0;
+      color:#000000;
+      display: block ;
+      text-decoration:none;
+      text-align:center;
+      margin-right:13px;
+      padding:2px 2px 2px 2px;
+  
+    }
+    
+    #menu li a .bold {
+      font-weight:bold;
+      }
+      
+    #menu_li li:hover a
+    {
+    color:#ffffff;
+    text-decoration:none;
+    background-color:#000000;
+    padding:2px 2px 2px 2px;
+    }
+    
+    
+   #menu-langues{
+    float:left;
+    width:141px;
+    margin: 0px 0 0 0px;
+    padding: 0 0 0 0 ;
+    list-style-type: none ;
+    height:30px;
+    }
+  
+    #menu-langues ul {
+      padding:0;
+      margin:0;
+      list-style: none;
+      
+    }
+    #menu-langues li
+    {
+      float: right ;
+      text-align: right ;
+    }
+    
+    #menu-langues li a
+    { 
+      width:auto;
+      line-height: 30px ;
+      font-size: 12px ;
+      letter-spacing: 0px ;
+      color:#000000;
+      display: block ;
+      text-decoration:none;
+      text-align:center;
+      margin-right:10px;
+      padding:2px 5px 2px 5px;
+  
+    }
+    #menu-langues li a:hover
+    {
+    color:#ffffff;
+    text-decoration:none;
+    background-color:#000000;
+    padding:2px 5px 2px 5px;
+    }
+
+
   #bandeauPA{
     margin: auto;
     margin-top: 25px;
@@ -66,3 +191,14 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+#contenue {
+  position:relative;
+  width:991px;
+  text-align:justify;
+  padding-left:auto;
+  padding-right:auto;
+  padding-top:20px;
+  padding-bottom:20px;
+  
+  }
