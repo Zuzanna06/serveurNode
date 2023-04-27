@@ -1,0 +1,297 @@
+<%- include('./templates/menu') %>
+  <div>
+    <img id="bandeauPA1" src="img/INbandeaupageAccueil1.jpg" alt="">
+  </div>
+
+  <div id="contenue">
+    <p><strong>Cabinet de Curiosités,</strong>
+      Galerie de Vente de produits authentiques, d’éditions limitées, de collections tendances sages ou
+      délirantes en mouvement perpétuel. Simplement Chic! La rencontre d'<strong>esprits créatif</strong>,
+      venant d’univers différents, animés par une folle envie de travailler ensemble. Un <strong>pool de
+        compétences</strong>
+      surfant sur les désirs d’un monde respectueux de son environnement. Un monde de tendances, de couleurs, de
+      matières, de connexion, de réseaux, d’événements.
+      <br>
+      <strong>Talents confirmés!</strong>
+  </div>
+  <main>
+
+    <div id="carousel">
+
+      <div class="hideLeft">
+        <img src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+      </div>
+
+      <div class="prevLeftSecond">
+        <img src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
+      </div>
+
+      <div class="prev">
+        <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
+      </div>
+
+      <div class="selected">
+        <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
+      </div>
+
+      <div class="next">
+        <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+      </div>
+
+      <div class="nextRightSecond">
+        <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
+      </div>
+
+      <div class="hideRight">
+        <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+      </div>
+
+    </div>
+
+    <!-- <div class="buttons">
+      <button id="prev">Prev</button>
+      <button id="next">Next</button>
+    </div> -->
+    <div id="contenue">
+      <br>
+      <p><strong>Cabinet de Curiosités,</strong>
+        Galerie de Vente de produits authentiques, d’éditions limitées, de collections tendances sages ou
+        délirantes en mouvement perpétuel. Simplement Chic! La rencontre d'<strong>esprits créatif</strong>,
+        venant d’univers différents, animés par une folle envie de travailler ensemble. Un <strong>pool de
+          compétences</strong>
+        surfant sur les désirs d’un monde respectueux de son environnement. Un monde de tendances, de couleurs, de
+        matières, de connexion, de réseaux, d’événements.
+        <br>
+        <strong>Talents confirmés!</strong>
+    </div>
+  </main>
+
+  <script>
+    function moveToSelected(element) {
+      if (element == "next") {
+        var selected = $(".selected").next();
+      } else if (element == "prev") {
+        var selected = $(".selected").prev();
+      } else {
+        var selected = element;
+      }
+
+      var next = $(selected).next();
+      var prev = $(selected).prev();
+      var prevSecond = $(prev).prev();
+      var nextSecond = $(next).next();
+
+      $(selected).removeClass().addClass("selected");
+
+      $(prev).removeClass().addClass("prev");
+      $(next).removeClass().addClass("next");
+
+      $(nextSecond).removeClass().addClass("nextRightSecond");
+      $(prevSecond).removeClass().addClass("prevLeftSecond");
+
+      $(nextSecond).nextAll().removeClass().addClass("hideRight");
+      $(prevSecond).prevAll().removeClass().addClass("hideLeft");
+    }
+
+    // Eventos teclado
+    $(document).keydown(function (e) {
+      switch (e.which) {
+        case 37: // left
+          moveToSelected("prev");
+          break;
+
+        case 39: // right
+          moveToSelected("next");
+          break;
+
+        default:
+          return;
+      }
+      e.preventDefault();
+    });
+
+    $("#carousel div").click(function () {
+      moveToSelected($(this));
+    });
+
+    $("#prev").click(function () {
+      moveToSelected("prev");
+    });
+
+    $("#next").click(function () {
+      moveToSelected("next");
+    });
+
+  </script>
+
+
+
+
+  <!-- <div id="carrousel">
+            <div id="container">
+            </div>
+            <img src="img/bouton.png" class="bouton" id="d" />
+            <img src="img/bouton.png" class="bouton" id="g" />
+        </div> -->
+  <!-- <script>
+             document.body.onload=function(){
+
+// je réinitialise les variables, 8 images et la position 0
+//(pour apres on la decale a gauche au a droite pour faire effet caroussel)
+nombre=8;
+p=0;
+
+// je recuper different objets de JS
+// containers et buton gauche et droite
+container=document.getElementById("container");
+g=document.getElementById("g");
+d=document.getElementById("d");
+// je modifie largeur du contenneur (on applique une taille 
+//et on multiplie par nombre de immages px=unites)
+container.style.width=(195*nombre)+"px"; //mon erreur 
+
+// je prossede au traitement itération, la transformation ineration d'immages
+// image se trouve dans le div que je crée dynamiquement
+for(let index=1;index<=nombre;index++){
+div=document.createElement("div");
+
+// j'applique une classe ces divs
+div.className="photo";
+
+// je spécifie différents images
+div.style.backgroundImage="url('img/img"+index+".jpg')";
+// j'ajute ces divs dans le container principal
+container.appendChild(div);
+}
+afficherMasquer();
+}
+// je programme les button, je click sur la gauche on se deplace vers la gauche
+g.onclick=function(){
+if(p>-nombre+1) 
+//une condition pour que ca se limit 
+//(si p est superieur a -nbr+1 (superieur a :-7, j'arret animer la caroussel))
+p--; //position negatif je decrement 
+container.style.transform="translate("+p*195+"px)"; 
+// la valeur c'est p *la largeur d'image
+// j'applique une transition avec le css
+container.style.transition="all 0.5s ease";
+afficherMasquer(); // une funtion afficher et masquer les button
+}
+d.onclick=function(){
+if(p<0)
+p++; // j'incrémente en plus
+container.style.transform="translate("+p*195+"px)";
+container.style.transition="all 0.5s ease";
+afficherMasquer();
+}
+function afficherMasquer(){ // on verifie la valleur p por savoir si afficher ou masquer
+if (p==-nombre+1) // si p est =- on masque le button a gauche
+    g.style.visibility="hidden";
+else // si non on affiche
+    g.style.visibility="visible";
+if (p==0) 
+    d.style.visibility="hidden";
+else
+    d.style.visibility="visible";
+}
+
+
+
+
+//fonction constructeur
+const results = document.querySelector('.results');
+
+let images =  document.querySelectorAll('#carrousel img');
+console.log(images);
+
+//recuperation des boutons funtion flechee
+let boutons = document.querySelectorAll('#carrousel button');
+console.log(boutons);
+boutons.forEach((el, index)=> {
+el.addEventListener('click', el => {
+console.log(el);
+console.log(index)
+affichePopup(index)
+})
+})
+// let htmlPopup = `<div>
+//                 <img src="img/img1.jpg" alt="" >
+//                 <div><h2>titre</h2></div>
+//                 <div><h3>texte</h3></div>
+//                 </div>
+// `
+//document.body.appendChild = htmlPopup
+
+// La méthode appendChild() ajoute un élément comme dernier enfant d'un élément
+function affichePopup(index) {
+let dialog = document.createElement("dialog");
+document.body.appendChild(dialog)
+let image = document.createElement("img")
+let text = document.createElement("p")
+let textG = document.createElement("h2")
+textG.innerText = "Lorem iet consectetur adipis";
+text.innerText =("Lorem iet consectetur adipisicing elit .Quo error accusamus , adipisicing elit facere qui pariatur officiisQuo error acere qui pariatur officiis accusamus, Quo error accusamus , adipisicing elit facere facere qui pariatur officiis")
+image.classList.add("imagePopup");
+
+image.src = images[index].src
+// on affect une valeur a la source
+
+dialog.appendChild(textG);
+dialog.appendChild(image);
+dialog.appendChild(text);
+
+dialog.showModal(); //affiche toit a ecrant
+
+dialog.addEventListener('click', e => dialog.close())
+
+}
+        </script> -->
+
+
+  <!-- <div id="horizontal_carousel">  
+    <div class="container">
+      <ul>
+        <li><a href="Extincteurs.php"><img src="img/img_1.jpg" alt="Picture 1" border="0" /></a></li>
+        <li><a href="La-bague-monde.php"><img src="img/img_2.jpg" alt="Picture 2" border="0" /></a></li>
+        <li><a href="Les-Fashion-TShirts.php"><img alt="Picture 3" src="img/img_3.jpg" /></a></li>
+        <li><a href="Duckstone-bay.php"><img src="img/img_4.jpg" alt="Picture 4" border="0" /></a></li>
+        <li><a href="Les-Charming-Charm.php"><img alt="Picture 5" src="img/img_5.jpg" /></a></li>
+        <li><a href="Les-Stickers-on-the-Wall.php"><img alt="Picture6" src="img/img_6.jpg" /></a></li>
+       <li><a href="Extincteurs.php"><img alt="Picture 8" src="img/img_8.jpg" /></a></li>
+        <li><img alt="Picture 9" src="img/img_9.jpg" /></li>
+         <li><img alt="Picture 10" src="img/img_10.jpg" /></li>
+        <li><img alt="Picture 1" src="img/img_1.jpg" /></li>
+        <li><img alt="Picture 2" src="img/img_2.jpg" /></li>
+        <li><img alt="Picture 3" src="img/img_3.jpg" /></li>
+        <li><img alt="Picture 4" src="img/img_4.jpg" /></li>
+        <li><img alt="Picture 5" src="img/img_5.jpg" /></li>
+        <li><img alt="Picture 6" src="img/img_6.jpg" /></li>
+        <li><img alt="Picture 7" src="img/img_7.jpg" /></li>
+        <li><img alt="Picture 8" src="img/img_8.jpg" /></li>
+        <li><img alt="Picture 9" src="img/img_9.jpg" /></li>
+  
+      </ul>
+    </div>
+    <div class="buttons">
+    <div class="previous_button"></div>
+    <div class="next_button"></div>
+    <br />
+    </div>
+  </div>
+  <script type="text/javascript"> -->
+
+
+  <!-- 
+  // <![CDATA[
+    function runTest() {
+      hCarousel = new UI.Carousel("horizontal_carousel");
+    }
+    Event.observe(window, "load", runTest);
+  // ]]>
+  </script>
+  
+</div> -->
+
+  </body>
+
+  </html>
